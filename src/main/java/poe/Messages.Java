@@ -46,4 +46,21 @@ public class Messages{
         System.out.println("Recipient: " + reciepient);
         System.out.println("Message Text: " + messageText);
     }
+// Getters for Storing Messages in JSON file
+    public String getMessageID(){
+        return messageID;
+    }
+
+    public int getMessageNumber(){
+        return messageNumber;
+    }
+
+    public String getReciepient(){
+        return reciepient;
+    }
+
+    public String getMessageText(){
+        return messageText;
+    }
+
 }
