@@ -136,20 +136,21 @@ public class App
                        break;
 
                     case 2:
-                        System.out.println("");
+                        System.out.println("Coming Soon.");
                         break;
 
                     case 3:
-                        System.out.println("Exiting QuickChat Menu. Returning to main menu.");
+                        System.out.println("Exiting QuickChat.");
                         break;
 
                     default:
                         System.out.println("Invalid option. Please select 1, 2, or 3.");
 
+                 }
+                  }
+                 }
                 }
-                }
-                }
-                
+
                 
                 else {
                     System.out.println("Login unsuccessful. Please check your credentials and try again.");
