@@ -151,6 +151,8 @@ public class App
                  }
                 }
 
+                //Adding a Send Messages method
+
                 
                 else {
                     System.out.println("Login unsuccessful. Please check your credentials and try again.");
