@@ -96,7 +96,7 @@ public class MessageTest {
 
         System.out.println("Generated Message ID: " + messageID);
         assertNotNull(messageID);
-        assertTrue(10, messageID.length());
+        assertEquals(10, messageID.length());
     }
 
     //Message Sent Test (Send Message)

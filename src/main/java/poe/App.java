@@ -1,4 +1,5 @@
 package poe;
+
 import java.util.Scanner;
 import java.util.ArrayList;
 public class App
@@ -32,7 +33,7 @@ public class App
                 //condition for registration loop
                 boolean isValid;
 
-                do { 
+                do {
                     System.out.println("Please enter your username (Contains _ and is a max of 5 characers long) ");
                     String username = input.nextLine();
 
@@ -180,7 +181,7 @@ public class App
                     input.nextLine();
                 
                 //Arrays for stored messages from JSON File
-                    ArrayList<Messages> storedMessages = MessageStore.loadMessages();
+                ArrayList<Messages> storedMessages = MessageStore.loadMessages();
                 
                 //Counter to measure all messages being processed
                 int totalProcessed = 0;
@@ -249,4 +250,3 @@ public class App
                     System.out.println("Total messages created: " + Messages.returnTotalMessages());
                 }
             }
-            
