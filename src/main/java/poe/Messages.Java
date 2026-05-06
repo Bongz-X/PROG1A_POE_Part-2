@@ -10,7 +10,7 @@ public class Messages{
     private String recipient;
     private String messageText;
 
-//Total message counter
+///Total message counter
 private static int totalMessages = 0;
 
 //Constructor for Messages
@@ -22,7 +22,15 @@ private static int totalMessages = 0;
 
         totalMessages++;
     }
+// Constructor for testing (manual messageID)
+public Messages(String messageID, int messageNumber, String recipient, String messageText) {
+    this.messageID = messageID;
+    this.messageNumber = messageNumber;
+    this.recipient = recipient;
+    this.messageText = messageText;
 
+    totalMessages++;
+}
 //Generating a random messageID
     private String generateMessageID(){
         Random rand = new Random();
@@ -53,13 +61,15 @@ private static int totalMessages = 0;
         if (messageText == null || messageText.trim().isEmpty()) {
             return "Invalid message text";
         }
-
+        //First two digits of MessageID
         String firstTwo =  messageID.substring(0, 2);
+
+        //First && Last words of messageID
         String [] words = messageText.split(" ");
         String firstWord = words[0];
-        String lastWord = words[words.length - 1];
+        String lastWord = words[words.length - 1].replaceAll("[^a-zA-Z]", ""); // Remove punctuation "?"
 
-        return(firstTwo + ":" + messageNumber + ":" + (firstWord + lastWord).toUpperCase());
+        return(firstTwo + ":" + (firstWord + lastWord).toUpperCase());
     }
 
 //Displaying messages in the correct order & format
