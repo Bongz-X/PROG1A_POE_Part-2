@@ -1,8 +1,8 @@
 package poe;
 import java.util.Scanner;
 import java.util.ArrayList;
-import poe.MessageStore;
-import poe.Messages;
+
+
 
 public class App
 {
