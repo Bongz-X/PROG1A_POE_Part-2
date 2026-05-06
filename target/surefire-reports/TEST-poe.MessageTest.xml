@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="poe.AppTest" time="0.438" tests="12" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="poe.MessageTest" time="0.497" tests="10" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -59,52 +59,45 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="testUsernameInvalid" classname="poe.AppTest" time="0.166">
-    <system-out><![CDATA[Test: Kyle!!!!!!!, Result: false, username not correctly formatted, please ensure it contains an underscore and is no more than 5 characters long.
+  <testcase name="testRecipientNumberInvalid" classname="poe.MessageTest" time="0.038">
+    <system-out><![CDATA[Recipient Number is Invalid: false, Cellphone number is incorrectly formatted or does not contain an international code.Please correct the number and try again.
 ]]></system-out>
   </testcase>
-  <testcase name="testPasswordValid" classname="poe.AppTest" time="0.007">
-    <system-out><![CDATA[Test: Ch&&sec@ke99!, Result: true, password successfully captured.
+  <testcase name="testDiscardMessage" classname="poe.MessageTest" time="0.014">
+    <system-out><![CDATA[Message Discard Result: Press 0 to delete message.
 ]]></system-out>
   </testcase>
-  <testcase name="testPasswordDoesNotMeetComplexityRequirements" classname="poe.AppTest" time="0.007">
-    <system-out><![CDATA[Password Validation result: false
+  <testcase name="testStoreMessage" classname="poe.MessageTest" time="0.012">
+    <system-out><![CDATA[Message Store Result: Message successfully stored.
 ]]></system-out>
   </testcase>
-  <testcase name="testCellPhoneInvalid" classname="poe.AppTest" time="0.006">
-    <system-out><![CDATA[Test: 08966553, Result: false, cell phone number incorrectly formatted or does not contain international code, please correct the number and try again.
+  <testcase name="testSendMessage" classname="poe.MessageTest" time="0.046">
+    <system-out><![CDATA[Message Sent Result: Message successfully sent.
 ]]></system-out>
   </testcase>
-  <testcase name="testUsernameValid" classname="poe.AppTest" time="0.004">
-    <system-out><![CDATA[Test: kyl_1, Result: true, Welcome! it is great to see you again.
+  <testcase name="testMessageLengthInvalid" classname="poe.MessageTest" time="0.053">
+    <system-out><![CDATA[Test Message Length Invalid: false, Message exceeds 250 characters by 10 characters, please reduce the size.
 ]]></system-out>
   </testcase>
-  <testcase name="testPasswordInvalid" classname="poe.AppTest" time="0.036">
-    <system-out><![CDATA[Test: password, Result: false, password does not meet the complexity requirements, please ensure it is at least 8 characters long and contains an uppercase letter, a number and a special character.
+  <testcase name="testMessageLengthValid" classname="poe.MessageTest" time="0.024">
+    <system-out><![CDATA[Test Message Length Valid: true, Message ready to send.
 ]]></system-out>
   </testcase>
-  <testcase name="testUsernameNotCorrectlyFormatted" classname="poe.AppTest" time="0.014">
-    <system-out><![CDATA[Username Validation result: false
+  <testcase name="testRecipientNumberValid" classname="poe.MessageTest" time="0.016">
+    <system-out><![CDATA[Recipient Number is Valid: true, Cellphone number successfully captured.
 ]]></system-out>
   </testcase>
-  <testcase name="testCellPhoneCorrectlyFormatted" classname="poe.AppTest" time="0.004">
-    <system-out><![CDATA[Cell Phone Validation result: true
+  <testcase name="testMessageHashCreated" classname="poe.MessageTest" time="0.107">
+    <system-out><![CDATA[Generated Hash test 1: 00:HITONIGHT
 ]]></system-out>
   </testcase>
-  <testcase name="testCellPhoneNotCorrectlyFormatted" classname="poe.AppTest" time="0.002">
-    <system-out><![CDATA[Cell Phone Validation result: false
+  <testcase name="testMessageIDGenerated" classname="poe.MessageTest" time="0.009">
+    <system-out><![CDATA[Generated Message ID: 4042890241
 ]]></system-out>
   </testcase>
-  <testcase name="testCellPhoneValid" classname="poe.AppTest" time="0.004">
-    <system-out><![CDATA[Test: +27838968976, Result: true, cell phone number successfully captured.
-]]></system-out>
-  </testcase>
-  <testcase name="testUsernameCorrectlyFormatted" classname="poe.AppTest" time="0.004">
-    <system-out><![CDATA[Username Validation result: true
-]]></system-out>
-  </testcase>
-  <testcase name="testPasswordMeetsComplexityRequirements" classname="poe.AppTest" time="0.002">
-    <system-out><![CDATA[Password Validation result: true
+  <testcase name="testMultipleMessageHashCreated" classname="poe.MessageTest" time="0.032">
+    <system-out><![CDATA[Generated Hash: 00:HITONIGHT
+Generated Hash: 01:HIPAYMENT
 ]]></system-out>
   </testcase>
 </testsuite>
