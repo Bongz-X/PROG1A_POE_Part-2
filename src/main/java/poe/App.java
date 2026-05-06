@@ -136,7 +136,7 @@ public class App
         } while (choice != 3);
       }
     }
-}
+
             //QuickChat Menu method
                 public static void showQuickChatMenu(Scanner input){
 
@@ -248,3 +248,4 @@ public class App
                     //Displaying total messages processed at the end of the loop
                     System.out.println("\nTotal messages processed: " + totalProcessed);
                 }
+            
