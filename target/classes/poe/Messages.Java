@@ -47,7 +47,7 @@ public Messages(String messageID, int messageNumber, String recipient, String me
 
 //Check recipient cell format
     public boolean checkRecipientCell(){
-        return recipient.startsWith("+27") && recipient.length() <= 12;
+        return recipient.matches("\\+27\\d{9}");
     }
 
 //Message length validation
@@ -67,6 +67,7 @@ public Messages(String messageID, int messageNumber, String recipient, String me
         //First && Last words of messageID
         String [] words = messageText.split(" ");
         String firstWord = words[0];
+
         String lastWord = words[words.length - 1].replaceAll("[^a-zA-Z]", ""); // Remove punctuation "?"
 
         return(firstTwo + ":" + (firstWord + lastWord).toUpperCase());

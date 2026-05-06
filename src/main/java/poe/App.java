@@ -206,7 +206,7 @@ public class App
                         System.out.println("Message is valid.");
                     }
                 //Messaging Menu Options
-                    System.out.println("\n Choose an option:");
+                    System.out.println("\nChoose an option:");
                     System.out.println("1. Send Message");
                     System.out.println("2. Discard Message");
                     System.out.println("3. Store Message");

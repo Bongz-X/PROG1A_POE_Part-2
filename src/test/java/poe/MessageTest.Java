@@ -28,7 +28,7 @@ public class MessageTest {
         boolean actualResult = msg.checkMessageText();
         boolean expectedResult = false;
 
-        System.out.println("Test Message Length Invalid: " + actualResult + ", Message exceeds 250 characters by " + (longMessage.length() - 250) + " characters" + ",please reduce the size.");
+        System.out.println("Test Message Length Invalid: " + actualResult + ", Message exceeds 250 characters by " + (longMessage.length() - 250) + " characters, please reduce the size.");
         assertEquals(expectedResult, actualResult);
     }
 
@@ -38,7 +38,7 @@ public class MessageTest {
 
        Messages msg = new Messages (1, "+27718693002", "Hi Mike, can you join us for dinner tonight?");
 
-       boolean actualResult = msg.checkRecipientNumber();
+       boolean actualResult = msg.checkRecipientCell();
        boolean expectedResult = true;
 
        System.out.println("Recipient Number is Valid: " + actualResult + ", Cellphone number successfully captured.");
@@ -49,9 +49,9 @@ public class MessageTest {
     @Test
     public void testRecipientNumberInvalid(){
 
-        Messages msg = new Messages (1, "08575975889", "Hi Keegan, did you receive the payment?");
+        Messages msg = new Messages (2, "08575975889", "Hi Keegan, did you receive the payment?");
 
-        boolean actualResult = msg.checkRecipientNumber();
+        boolean actualResult = msg.checkRecipientCell();
         boolean expectedResult = false;
 
         System.out.println("Recipient Number is Invalid: " + actualResult + ", Cellphone number is incorrectly formatted or does not contain an international code.Please correct the number and try again.");
@@ -66,8 +66,8 @@ public class MessageTest {
         String hash = msg.createMessageHash();
         String expectedResult = "00:HITONIGHT";
 
-        System.out.println("Generated Hash test 1: " + actualResult);
-        assertEquals(expectedResult, actualResult);
+        System.out.println("Generated Hash test 1: " + hash);
+        assertEquals(expectedResult, hash);
     }
 
     //Message Hash Test with Loops
@@ -76,8 +76,8 @@ public class MessageTest {
        Messages [] messages = {
         new Messages ("00ABCDEF31", 1, "+27718693002", "Hi Mike, can you join us for dinner tonight?"),
 
-        new Messages ("01GHIJKL42", 2, "08575975889", "Hi Keegan, did you receive the payment?"),
-       }
+        new Messages ("01GHIJKL42", 2, "08575975889", "Hi Keegan, did you receive the payment?")
+       };
 
        for (Messages msg : messages){
         String hash = msg.createMessageHash();
@@ -96,7 +96,7 @@ public class MessageTest {
 
         System.out.println("Generated Message ID: " + messageID);
         assertNotNull(messageID);
-        assertTrue(messageID.length() == 10);
+        assertTrue(10, messageID.length());
     }
 
     //Message Sent Test (Send Message)
@@ -116,7 +116,7 @@ public class MessageTest {
     @Test
     public void testDiscardMessage(){
 
-        Messages msg = new Messages (1, "+27718693002", "Hi Mike, can you join us for dinner tonight?");
+        Messages msg = new Messages (2, "08575975889", "Hi Keegan, did you receive the payment?");
 
         String actualResult = msg.SentMessage(2);
         String expectedResult = "Press 0 to delete message.";
@@ -129,7 +129,7 @@ public class MessageTest {
     @Test
     public void testStoreMessage(){
 
-        Messages msg = new Messages (1, "+27718693002", "Hi Keegan, did you receive the payment?");
+        Messages msg = new Messages (3, "+27718693002", "Hi Keegan, did you receive the payment?");
 
         String actualResult = msg.SentMessage(3);
         String expectedResult = "Message successfully stored.";
@@ -137,5 +137,4 @@ public class MessageTest {
         System.out.println("Message Store Result: " + actualResult);
         assertEquals(expectedResult, actualResult);
     }
-
 }
