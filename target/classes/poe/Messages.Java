@@ -22,7 +22,7 @@ public class Messages{
         Random rand = new Random();
 
         //Generates between 0 & 10 billion and formats to 10 digits.
-        long number = (long)(rand.nextDouble()  *1_000_000_000L);
+        long number = (long)(rand.nextDouble()  *1_000_000_0000L);
         return String.format("%010d", number);
     }
 //Message length validation
@@ -43,7 +43,7 @@ public class Messages{
     public void printMessageDetails(){
         System.out.println("Message ID: " + messageID);
         System.out.println("Message Hash: " + generateHash());
-        System.out.println("Recipient: " + reciepient);
+        System.out.println("Reciepient: " + reciepient);
         System.out.println("Message Text: " + messageText);
     }
 // Getters for Storing Messages in JSON file

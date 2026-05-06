@@ -1,5 +1,6 @@
 package poe;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class App
 {
@@ -112,10 +113,32 @@ public class App
                     System.out.println("Welcome back to QuickChat.");
 
                 //Displaying QuickChat Menu
-                    ShowQuickChatMenu(input);
+                    showQuickChatMenu(input);
+                }
+  
+                //Login unsuccessful message
+                else {
+                    System.out.println("Login unsuccessful. Please check your credentials and try again.");
+                }
+                break;
 
-                //QuickChat Menu method
-                public static void ShowQuickChatMenu(Scanner input){
+                //Exit message
+                case 3:
+                    System.out.println("Thank you for using the system. Goodbye!");
+                    break;
+
+                //Default case for invalid menu option
+                default:
+                    System.out.println("Invalid option. Please select 1, 2, or 3.");
+
+            }
+
+        } while (choice != 3);
+      }
+    }
+}
+            //QuickChat Menu method
+                public static void showQuickChatMenu(Scanner input){
 
                 //Looping QuickChat Menu
                 int MenuOptions = 0;
@@ -165,13 +188,13 @@ public class App
 
                 for (int m = 1; m <= total; m++){
                     System.out.println("\n---Messages " + m + "---");
-                    System.out.print("Enter the recipient's number: ");
-                    String recipient = input.nextLine();
+                    System.out.print("Enter the reciepient's number: ");
+                    String reciepient = input.nextLine();
 
                     System.out.print("Enter the message text: ");
                     String messageText = input.nextLine();
 
-                    Message msg = new Message(m, recipient, messageText);
+                    Messages msg = new Messages(m, reciepient, messageText);
 
                 //Every message attempt is counted
                     totalProcessed ++;
@@ -181,7 +204,7 @@ public class App
                         System.out.println("Please enter a message of less than 250 characters.");
                         continue;
                     } else {
-                        System.out.println("Message is valid.")
+                        System.out.println("Message is valid.");
                     }
                 //Messaging Menu Options
                     System.out.println("\n Choose an option:");
@@ -203,10 +226,11 @@ public class App
                         case 2:
                             System.out.println("Press 0 to delete message.");
                             int confirm = input.nextInt();
+                            input.nextLine();
                             if (confirm == 0) {
                                 System.out.println("Message deleted.");
                             } else{
-                                System.out.println("Message is not discarded.")
+                                System.out.println("Message is not discarded.");
                             }
                             break;
 
@@ -224,24 +248,3 @@ public class App
                     //Displaying total messages processed at the end of the loop
                     System.out.println("\nTotal messages processed: " + totalProcessed);
                 }
-                }
-                //Login unsuccessful message
-                else {
-                    System.out.println("Login unsuccessful. Please check your credentials and try again.");
-                }
-                break;
-
-                //Exit message
-                case 3:
-                    System.out.println("Thank you for using the system. Goodbye!");
-                    break;
-
-                //Default case for invalid menu option
-                default:
-                    System.out.println("Invalid option. Please select 1, 2, or 3.");
-
-            }
-        } while (choice != 3);
-    }
-    }
-}
