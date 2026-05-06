@@ -1,9 +1,6 @@
 package poe;
 import java.util.Scanner;
 import java.util.ArrayList;
-
-
-
 public class App
 {
     public static void main( String[] args )
@@ -143,19 +140,19 @@ public class App
                 public static void showQuickChatMenu(Scanner input){
 
                 //Looping QuickChat Menu
-                int MenuOptions = 0;
+                int MessageOptions = 0;
 
-                while (MenuOptions !=3) {
+                while (MessageOptions != 3) {
                     System.out.println("---QuickChat Menu---");
-                    System.out.println("Please select an option:");
+                    System.out.println("\nPlease select an option:");
                     System.out.println("1. Send a message");
                     System.out.println("2. Show recently sent messages");
                     System.out.println("3. Exit");
 
-                    MenuOptions = input.nextInt();
+                    MessageOptions = input.nextInt();
                     input.nextLine();
                 
-                switch (MenuOptions) {
+                switch (MessageOptions) {
                     case 1:
                        sendMessages (input);
                        break;
@@ -221,8 +218,8 @@ public class App
                 //Displaying Menu option results
                     switch (messageOption) {
                         case 1:
-                            System.out.println("Message successfully sent.");
-                            msg.printMessageDetails();
+                            System.out.println(msg.SentMessage(1));
+                            msg.printMessages();
                             break;
 
                         case 2:
@@ -239,7 +236,7 @@ public class App
                         case 3:
                             storedMessages.add(msg);
                             MessageStore.saveMessages(storedMessages);
-                            System.out.println("Message successfully stored.");
+                            System.out.println(msg.SentMessage(3));
                             break;
 
                         default:
@@ -247,8 +244,9 @@ public class App
                         }
                     }
 
-                    //Displaying total messages processed at the end of the loop
+                    //Displaying total messages processed & created at the end of the loop
                     System.out.println("\nTotal messages processed: " + totalProcessed);
+                    System.out.println("Total messages created: " + Messages.returnTotalMessages());
                 }
             }
             
