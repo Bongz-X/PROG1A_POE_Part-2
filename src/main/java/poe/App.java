@@ -173,24 +173,59 @@ public class App
 
                     Message msg = new Message(m, recipient, messageText);
 
-                    //Every message attempt is counted
+                //Every message attempt is counted
                     totalProcessed ++;
 
-                    //Ensure message length is validated first before being counted
+                //Ensure message length is validated first before being counted
                     if (!msg.checkMessageText()){
                         System.out.println("Please enter a message of less than 250 characters.");
                         continue;
                     } else {
                         System.out.println("Message is valid.")
                     }
+                //Messaging Menu Options
+                    System.out.println("\n Choose an option:");
+                    System.out.println("1. Send Message");
+                    System.out.println("2. Discard Message");
+                    System.out.println("3. Store Message");
 
-
-                }
-
- 
-                }
-
+                //Allowing user to select option for Message menu
+                    int messageOption = input.nextInt();
+                    input.nextLine();
                 
+                //Displaying Menu option results
+                    switch (messageOption) {
+                        case 1:
+                            System.out.println("Message successfully sent.");
+                            msg.printMessageDetails();
+                            break;
+
+                        case 2:
+                            System.out.println("Press 0 to delete message.");
+                            int confirm = input.nextInt();
+                            if (confirm == 0) {
+                                System.out.println("Message deleted.");
+                            } else{
+                                System.out.println("Message is not discarded.")
+                            }
+                            break;
+
+                        case 3:
+                            storedMessages.add(msg);
+                            MessageStore.saveMessages(storedMessages);
+                            System.out.println("Message successfully stored.");
+                            break;
+
+                        default:
+                            System.out.println("Invalid option. Please select 1, 2, or 3.");
+                        }
+                    }
+
+                    //Displaying total messages processed at the end of the loop
+                    System.out.println("\nTotal messages processed: " + totalProcessed);
+                }
+                }
+                //Login unsuccessful message
                 else {
                     System.out.println("Login unsuccessful. Please check your credentials and try again.");
                 }
