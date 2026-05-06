@@ -147,11 +147,48 @@ public class App
                         System.out.println("Invalid option. Please select 1, 2, or 3.");
 
                  }
-                  }
-                 }
                 }
+              }
 
                 //Adding a Send Messages method
+                public static void sendMessages(Scanner input){
+                //Asking the user for message count
+                    System.out.print("How many messages would you like to send?");
+                    int total = input.nextInt ();
+                    input.nextLine();
+                
+                //Arrays for stored messages from JSON File
+                    ArrayList<Messages> storedMessages = MessageStore.loadMessages();
+                
+                //Counter to measure all messages being processed
+                int totalProcessed = 0;
+
+                for (int m = 1; m <= total; m++){
+                    System.out.println("\n---Messages " + m + "---");
+                    System.out.print("Enter the recipient's number: ");
+                    String recipient = input.nextLine();
+
+                    System.out.print("Enter the message text: ");
+                    String messageText = input.nextLine();
+
+                    Message msg = new Message(m, recipient, messageText);
+
+                    //Every message attempt is counted
+                    totalProcessed ++;
+
+                    //Ensure message length is validated first before being counted
+                    if (!msg.checkMessageText()){
+                        System.out.println("Please enter a message of less than 250 characters.");
+                        continue;
+                    } else {
+                        System.out.println("Message is valid.")
+                    }
+
+
+                }
+
+ 
+                }
 
                 
                 else {
