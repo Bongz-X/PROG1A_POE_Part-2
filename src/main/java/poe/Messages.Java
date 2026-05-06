@@ -7,14 +7,14 @@ public class Messages{
 //Declarations 
     private String messageID;
     private int messageNumber;
-    private String reciepient;
+    private String recipient;
     private String messageText;
 
 //Constructor for Messages 
-    public Messages(int messageNumber, String reciepient, String messageText) {
+    public Messages(int messageNumber, String recipient, String messageText) {
         this.messageID = generateMessageID();
         this.messageNumber = messageNumber;
-        this.reciepient = reciepient;
+        this.recipient = recipient;
         this.messageText = messageText;
     }
 //Generating a random messageID
@@ -43,7 +43,7 @@ public class Messages{
     public void printMessageDetails(){
         System.out.println("Message ID: " + messageID);
         System.out.println("Message Hash: " + generateHash());
-        System.out.println("Reciepient: " + reciepient);
+        System.out.println("Recipient: " + recipient);
         System.out.println("Message Text: " + messageText);
     }
 // Getters for Storing Messages in JSON file
@@ -55,8 +55,8 @@ public class Messages{
         return messageNumber;
     }
 
-    public String getReciepient(){
-        return reciepient;
+    public String getRecipient(){
+        return recipient;
     }
 
     public String getMessageText(){

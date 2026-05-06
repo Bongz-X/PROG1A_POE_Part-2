@@ -1,6 +1,8 @@
 package poe;
 import java.util.Scanner;
 import java.util.ArrayList;
+import poe.MessageStore;
+import poe.Messages;
 
 public class App
 {
@@ -176,7 +178,7 @@ public class App
                 //Adding a Send Messages method
                 public static void sendMessages(Scanner input){
                 //Asking the user for message count
-                    System.out.print("How many messages would you like to send?");
+                    System.out.print("How many messages would you like to send? ");
                     int total = input.nextInt ();
                     input.nextLine();
                 
@@ -187,14 +189,14 @@ public class App
                 int totalProcessed = 0;
 
                 for (int m = 1; m <= total; m++){
-                    System.out.println("\n---Messages " + m + "---");
-                    System.out.print("Enter the reciepient's number: ");
-                    String reciepient = input.nextLine();
+                    System.out.println("\n---Message " + m + "---");
+                    System.out.print("Enter the recipient's number: ");
+                    String recipient = input.nextLine();
 
                     System.out.print("Enter the message text: ");
                     String messageText = input.nextLine();
 
-                    Messages msg = new Messages(m, reciepient, messageText);
+                    Messages msg = new Messages(m, recipient, messageText);
 
                 //Every message attempt is counted
                     totalProcessed ++;
@@ -248,4 +250,5 @@ public class App
                     //Displaying total messages processed at the end of the loop
                     System.out.println("\nTotal messages processed: " + totalProcessed);
                 }
+            }
             
