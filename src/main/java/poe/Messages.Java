@@ -50,7 +50,7 @@ private static int totalMessages = 0;
 //Create message hash (Generated)
     public String createMessageHash(){
 
-        if (messageText == null) || messageText.trim().isEmpty() {
+        if (messageText == null || messageText.trim().isEmpty()) {
             return "Invalid message text";
         }
 
@@ -74,11 +74,11 @@ private static int totalMessages = 0;
 public String SentMessage(int option){
     switch(option){
         case 1:
-            return "Message sent successfully.";
+            return "Message successfully sent.";
         case 2:
-            return "Message discarded.";
+            return "Press 0 to delete message.";
         case 3:
-            return "Message stored."
+            return "Message successfully stored.";
         default:
             return "Invalid option.";
     }
